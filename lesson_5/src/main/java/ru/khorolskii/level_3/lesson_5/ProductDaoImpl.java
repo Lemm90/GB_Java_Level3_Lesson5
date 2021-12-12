@@ -3,7 +3,7 @@ package ru.khorolskii.level_3.lesson_5;
 import org.hibernate.Session;
 
 import java.util.List;
-import java.util.Optional;
+
 
 
 public class ProductDaoImpl implements ProductDao {
@@ -14,10 +14,10 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public Optional <Product> findById(Long id) {
+    public Product findById(Long id) {
         try (Session session = sessionFactoryUtils.getSession()) {
             session.beginTransaction();
-           Optional <Product> p =Optional.ofNullable(session.get(Product.class, id));
+            Product p = session.get(Product.class, id);
             session.getTransaction().commit();
             return p;
         }

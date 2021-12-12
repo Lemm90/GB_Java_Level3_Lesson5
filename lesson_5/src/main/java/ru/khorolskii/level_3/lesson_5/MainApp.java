@@ -13,7 +13,7 @@ public class MainApp {
         try {
             ProductDaoImpl productDao = new ProductDaoImpl(sessionFactoryUtils);
             System.out.println(productDao.allProduct());
-            productDao.deleteById(4L);
+            productDao.deleteById(2L);
             System.out.println(productDao.allProduct());
         } catch (Exception e){
             e.printStackTrace();
